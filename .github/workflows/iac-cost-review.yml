@@ -8,6 +8,10 @@ on:
       - '**.yaml'
       - '**.yml'
       - '!.github/**'
+  workflow_call:
+    secrets:
+      ANTHROPIC_API_KEY:
+        required: true
 
 jobs:
   cost-review:
@@ -58,9 +62,10 @@ jobs:
             fi
           done
 
-          SKILL=$(cat .github/skills/iac-cost-estimator/SKILL.md)
-          AWS_PRICES=$(cat .github/skills/iac-cost-estimator/references/aws-pricing.md)
-          AZURE_PRICES=$(cat .github/skills/iac-cost-estimator/references/azure-pricing.md)
+          BASE=https://raw.githubusercontent.com/bhimireddy/pricing-calculator/main/.github/skills/iac-cost-estimator
+          SKILL=$(curl -sf "${BASE}/SKILL.md")
+          AWS_PRICES=$(curl -sf "${BASE}/references/aws-pricing.md")
+          AZURE_PRICES=$(curl -sf "${BASE}/references/azure-pricing.md")
 
           # Save to temp files to avoid env var size limits
           printf '%s' "$PAYLOAD" > /tmp/iac_files.txt
