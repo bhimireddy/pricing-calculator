@@ -13,7 +13,7 @@ Parameters:
     ConstraintDescription: Must be a valid EC2 instance type.
 
   KeyName:
-    Description: Name of an existing EC2 KeyPair to enable SSH access
+    Description: Name of the existing EC2 KeyPair to enable SSH access
     Type: AWS::EC2::KeyPair::KeyName
 
   SSHLocation:
