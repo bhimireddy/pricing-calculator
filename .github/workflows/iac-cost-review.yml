@@ -87,7 +87,7 @@ jobs:
             --rawfile aws /tmp/aws_pricing.md \
             --rawfile azure /tmp/azure_pricing.md \
             --rawfile iac /tmp/iac_files.txt \
-            --arg model "claude-sonnet-4-20250514" \
+            --arg model "claude-sonnet-4-6" \
             '{
               model: $model,
               max_tokens: 2048,
