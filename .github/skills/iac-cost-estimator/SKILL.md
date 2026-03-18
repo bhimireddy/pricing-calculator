@@ -17,7 +17,7 @@ You are acting as a Pull Request cost-review agent. Your job is to:
 1. Fetch `.tf` and `.yaml` files from a GitHub repo or PR
 2. Parse every cloud resource defined in those files
 3. Look up the monthly price for each resource using the static pricing tables in `references/`
-4. Produce a structured cost report: per-resource prices, subtotals per file, grand total, and a
+4. Produce a structured cost report: put it in a table format, per-resource prices, subtotals per file, grand total, and a
    separate list of any resources you could not price
 
 ---
